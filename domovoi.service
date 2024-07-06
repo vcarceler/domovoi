@@ -1,0 +1,12 @@
+[Unit]
+Description=Domovoi recibe peticiones de los clientes web y lanza comandos en el sistema
+
+[Service]
+User=vcarceler
+Group=vcarceler
+Restart=on-failure
+WorkingDirectory=/home/vcarceler
+ExecStart=/opt/domovoi -command /home/vcarceler/playbooks-elpuig/cron/domovoi-init-alumnes-u2404
+
+[Install]
+WantedBy=default.target
