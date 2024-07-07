@@ -5,7 +5,7 @@ Domovoi es un servicio web que permite ejecutar un comando a partir de la solici
 
 Está pensado para, por ejemplo, lanzar un `playbook` de Ansible. Al lanzar el comando se le pasa el parámetro (`$1` si el comando es un *script*) que se haya proporcionado en la solicitud web.
 
-Cuando se ejecuta `domovoi` (normalmente utilizando `domovoi.service`) se puede utilizar un parámetro que especifica el comando a ejecutar. Cada vez que `domovoi` reciba una petición se ejecutará el comando indicado.
+Cuando se ejecuta `domovoi` (normalmente utilizando `domovoi.service`) se puede utilizar el parámetro `command` que especifica el comando a ejecutar. Cada vez que `domovoi` reciba una petición se ejecutará el comando indicado.
 
 # Instalación de Domovoi
 
