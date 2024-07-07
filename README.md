@@ -1,11 +1,11 @@
 [![Domovoi por Iván Bilibin](https://upload.wikimedia.org/wikipedia/commons/8/84/Domovoi_Bilibin.jpg)](https://es.wikipedia.org/wiki/Iv%C3%A1n_Bilibin)
 # Домовой / Domovoi
 
-Domovoi es un servicio web permite lanzar un comando a partir de la solicitud de un cliente.
+Domovoi es un servicio web permite ejecutar un comando a partir de la solicitud de un cliente.
 
-Está pensado para, por ejemplo, lanzar un `playbook` de Ansible que prepara portátiles para los alumnos. Pero puede lanzar cualquier comando pasando los parámetros indicados en la petición web.
+Está pensado para, por ejemplo, lanzar un `playbook` de Ansible que prepara portátiles para los alumnos. Las peticiones web a `domovoi` incluyen los parámetros para la ejecución de este comando.
 
-Cuando se lanza `domovoi` (normalmente utilizando `domovoi.service`) se especifica el comando a ejecutar. Cada vez que `domovoi` reciba una petición se ejecutará el comando indicado.
+Cuando se ejecuta `domovoi` (normalmente utilizando `domovoi.service`) se puede utilizar un parámetro que especifica el comando a ejecutar. Cada vez que `domovoi` reciba una petición se ejecutará el comando indicado.
 
 # Instalación de Domovoi
 
@@ -34,6 +34,7 @@ En este caso `domovoi`:
  * Se conectará a todas las interfaces de red (`0.0.0.0`).
  * Atenderá en el puerto `1234`.
  * Se utilizará como `secret` la cadena `DOMOVOI`.
+ * Ejecutará `./mi_script.sh` cada vez que reciba una petición web.
 
 Pero se podrá indicar un valor adecuado para cualquiera de estos parámetros:
 
