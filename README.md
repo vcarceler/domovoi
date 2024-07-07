@@ -1,9 +1,9 @@
 [![Domovoi por Iván Bilibin](https://upload.wikimedia.org/wikipedia/commons/8/84/Domovoi_Bilibin.jpg)](https://es.wikipedia.org/wiki/Iv%C3%A1n_Bilibin)
 # Домовой / Domovoi
 
-Domovoi es un servicio web permite ejecutar un comando a partir de la solicitud de un cliente.
+Domovoi es un servicio web que permite ejecutar un comando a partir de la solicitud de un cliente.
 
-Está pensado para, por ejemplo, lanzar un `playbook` de Ansible que prepara portátiles para los alumnos. Las peticiones web a `domovoi` incluyen los parámetros para la ejecución de este comando.
+Está pensado para, por ejemplo, lanzar un `playbook` de Ansible. Al lanzar el comando se le pasa el parámetro (`$1` si el comando es un *script*) que se haya proporcionado en la solicitud web.
 
 Cuando se ejecuta `domovoi` (normalmente utilizando `domovoi.service`) se puede utilizar un parámetro que especifica el comando a ejecutar. Cada vez que `domovoi` reciba una petición se ejecutará el comando indicado.
 
@@ -73,7 +73,7 @@ ExecStart=/opt/domovoi -command /home/vcarceler/playbooks-elpuig/cron/domovoi-in
 WantedBy=default.target
 ~~~
 
-Cada vez que `domovoi` reciba una petición `<ip>:<port>/command/<secret>/<parameters>` ejecutará el script `/home/vcarceler/playbooks-elpuig/cron/domovoi-init-alumnes-u2404` pasándole `<parameters>`.
+Cada vez que `domovoi` reciba una petición `<ip>:<port>/command/<secret>/<parameters>` ejecutará el script `/home/vcarceler/playbooks-elpuig/cron/domovoi-init-alumnes-u2404` pasándole `<parameters>` (en el *script* será el primer argumento posicional `$1`).
 
 Durante el funcionamiento se irán registrando las solicitudes recibidas y la salida de la ejecución tanto en el navegador como en los ficheros de registro.
 
