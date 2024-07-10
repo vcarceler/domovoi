@@ -14,10 +14,10 @@ package main
 
 import (
 	"flag"
-    "fmt"
+	"fmt"
 	"log"
 	"net/http"
-    "os/exec"
+	"os/exec"
 )
 
 var address string
@@ -44,23 +44,23 @@ func execCommand(w http.ResponseWriter, r *http.Request) {
 	// Hacemos flush
 	// Ver: https://simon-frey.com/blog/manual-flush-golang-http-responsewriter/
 	if f, ok := w.(http.Flusher); ok {
-        f.Flush()
-    }
+		f.Flush()
+	}
 
 	cmd := exec.Command(command, p1)
 
 	// Captura la salida estándar del comando
-    output, err := cmd.Output()
-    if err != nil {
+	output, err := cmd.Output()
+	if err != nil {
 		msg = fmt.Sprintf("Error ejecutando el comando: %v", err)
 		fmt.Fprintf(w, msg)
-        log.Printf(msg)
+		log.Printf(msg)
 		return
-    }
+	}
 
 	// Imprime la salida del comando
 	msg = fmt.Sprintf("\n\nSalida del comando:\n===================\n%s", output)
-    fmt.Fprintf(w, msg)
+	fmt.Fprintf(w, msg)
 	log.Printf(msg)
 }
 
